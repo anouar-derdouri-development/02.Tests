@@ -4,6 +4,10 @@ class Pet(
 ) {
     companion object {
         val allowedTypes = listOf("dog", "cat", "hamster", "fish", "bird")
+
+        public fun isAllowedType(type: String): Boolean {
+            return allowedTypes.contains(type.lowercase())
+        }
     }
 
     var type: String = type
@@ -16,7 +20,7 @@ class Pet(
     }
 
     private fun checkType(value: String):String {
-        if (value.lowercase() !in allowedTypes)
+        if (! isAllowedType(value))
             throw Exception("Invalid pet type ($value) !!!")
 
         return value
