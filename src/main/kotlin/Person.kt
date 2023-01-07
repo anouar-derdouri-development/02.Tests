@@ -1,6 +1,6 @@
 class Person constructor(
-    firstName: String,
-    lastName: String,
+    firstName: String = "john",
+    lastName: String = "doe",
     /*
         * ToDo: Add private property
 
@@ -46,10 +46,7 @@ class Person constructor(
         return value.uppercase()
     }
 
-    fun show() {
-        println("\nshow")
-        println("-".repeat("show".length))
-
-        println("$firstName $lastName")
+    override fun toString(): String {
+        return "$firstName $lastName"
     }
 }
