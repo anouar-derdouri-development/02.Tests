@@ -33,14 +33,14 @@ class Person constructor(
     }
 
     private fun checkFirstname(value: String): String {
-        if (!Validation.isName(value))
+        if (!isName(value))
             throw Exception("Invalid Firstname !!!")
 
-        return Formatting.titlecase(value)
+        return titlecase(value)
     }
 
     private fun checkLastname(value: String): String {
-        if (!Validation.isName(value))
+        if (!isName(value))
             throw Exception("Invalid Lastname !!!")
 
         return value.uppercase()
