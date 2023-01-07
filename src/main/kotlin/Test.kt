@@ -8,4 +8,5 @@ fun main() {
     p.lastName = "hassani"
     p.show()
     println("Fullname: ${p.fullName}")
+    println("Fullname: ${p.firstName} ${p.lastName}") // * Call default getters
 }
