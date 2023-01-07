@@ -1,5 +1,3 @@
-import java.text.Normalizer.Form
-
 class Person constructor(
     firstName: String,
     lastName: String,
@@ -11,18 +9,12 @@ class Person constructor(
 ) {
     var firstName = firstName
         set(value) {
-            if (! Validation.isName(value))
-                throw Exception("Invalid Firstname !!!")
-
-            field = Formatting.titlecase(value)
+            field = checkFirstname(value)
         }
 
     var lastName = lastName
         set(value) {
-            if (! Validation.isName(value))
-                throw Exception("Invalid Lastname !!!")
-
-            field = value.uppercase()
+            field = checkLastname(value)
         }
 
     val fullName: String
@@ -34,15 +26,24 @@ class Person constructor(
         println("\ninit")
         println("-".repeat("init".length))
 
-        if (! Validation.isName(firstName))
-            throw Exception("Invalid Firstname !!!")
-        this.firstName = Formatting.titlecase(firstName)
-
-        if (! Validation.isName(lastName))
-            throw Exception("Invalid Lastname !!!")
-        this.lastName = this.lastName.uppercase()
+        this.firstName = checkFirstname(firstName)
+        this.lastName = checkLastname(lastName)
 
         println("${this.firstName} ${this.lastName}")
+    }
+
+    private fun checkFirstname(value: String): String {
+        if (!Validation.isName(value))
+            throw Exception("Invalid Firstname !!!")
+
+        return Formatting.titlecase(value)
+    }
+
+    private fun checkLastname(value: String): String {
+        if (!Validation.isName(value))
+            throw Exception("Invalid Lastname !!!")
+
+        return value.uppercase()
     }
 
     fun show() {
