@@ -1,21 +1,27 @@
-class Person constructor(firstName: String) { // * Without var or explicit var firstName is just a parameter-> it isn't a property (attribute)
-    var fs: String = firstName // * fs is a property, it can be initialized using a parameter (firstName in this case)
+class Person constructor(
+    var firstName: String,
+    var lastName: String, // * The trailing comma is a best practice
+    /*
+        * firstName & lastName are public properties; they are accessible everywhere in the code
 
+        * ToDo: A property can be either var or val
+     */
+) {
+    var fullName: String = "$firstName $lastName"
     init {
         println("\ninit")
         println("-".repeat("init".length))
 
-        println(firstName) // * We can use the parameter firstName in init block(s)
-        println(fs) // * We can use the property fs in init block(s)
-    } // * init block is triggered after the initialization of properties (like fs)
+        firstName = firstName.substring(0, 1).uppercase() + firstName.substring(1).lowercase()
+        lastName = lastName.uppercase()
+
+        println("$firstName $lastName")
+    }
 
     fun show() {
         println("\nshow")
         println("-".repeat("show".length))
 
-//        println(firsName)
-        // * firstName (parameter) isn't recognised here
-
-        println(fs) // fs (property) is recognised here + fs = this.fs
+        println("$firstName $lastName")
     }
 }
