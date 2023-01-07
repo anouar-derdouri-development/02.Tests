@@ -2,13 +2,9 @@ fun main() {
     var p = Person("hassan", "alaoui")
 
     p.show()
-    println("Fullname: ${p.fullName}")
-    /*
-        ? prints: hassan alaoui
-        ? not: Hassan ALAOUI
-
-        ToDo: Initialize fullName the way we want OR Add custom getter
-    */
+    println("Fullname: ${p.fullName}")// * Call the custom getter
+//    p.fullName = ""
+    // ? Doesn't work because the setter is private
 
     p.firstName = "hamid"
     p.lastName = "hassani"
@@ -22,9 +18,7 @@ fun main() {
 
     println("Fullname: ${p.fullName}")
     /*
-        ? "hassan alaoui"
-        ? not "Hamid HASSANI" or even "hamid hassani"
-
-        ToDo: Add custom getter for fullName
+        ? "hamid hassani"
+        ? not "Hamid HASSANI"
     */
 }

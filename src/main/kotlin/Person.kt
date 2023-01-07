@@ -1,13 +1,21 @@
 class Person constructor(
     var firstName: String,
-    var lastName: String, // * The trailing comma is a best practice
+    var lastName: String,
     /*
-        * firstName & lastName are public properties; they are accessible everywhere in the code
+        * ToDo: Add private property
 
-        * ToDo: A property can be either var or val
+        * ToDo: Add val property
      */
 ) {
     var fullName: String = "$firstName $lastName"
+        /*
+            * We can initialize fullName in init block
+        */
+        get() {
+            return "$firstName $lastName"
+        }
+        private set
+
     init {
         println("\ninit")
         println("-".repeat("init".length))
