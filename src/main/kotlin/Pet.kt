@@ -40,10 +40,8 @@ class Pet(
         type: String,
         owner: Person?
     ) : this(name, type) {
-        if (owner != null) {
-            owner.addPet(this)
-        }
-        // ToDo: Explore Null safety options
+        owner?.addPet(this)
+        // * Done: Explore Null safety options
     }
 
     override fun toString(): String {
