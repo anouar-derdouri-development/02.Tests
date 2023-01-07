@@ -1,7 +1,7 @@
 class Person constructor(
     firstName: String = "john",
     lastName: String = "doe",
-    age: Int = 18
+    age: Int = 18,
     /*
         * ToDo: Add private property
 
@@ -23,20 +23,17 @@ class Person constructor(
             field = checkAge(value)
         }
 
+    val pets: MutableList<Pet> = mutableListOf()
+
     val fullName: String
         get() {
             return "$firstName $lastName"
         }
 
     init {
-        println("\ninit")
-        println("-".repeat("init".length))
-
         this.firstName = checkFirstname(firstName)
         this.lastName = checkLastname(lastName)
         this.age = checkAge(age)
-
-        println("${this.firstName} ${this.lastName}")
     }
 
     private fun checkFirstname(value: String): String {
@@ -61,6 +58,8 @@ class Person constructor(
     }
 
     override fun toString(): String {
-        return "$firstName $lastName"
+        var petsToString = pets.joinToString(" ")
+
+        return "$firstName $lastName - Pets: $petsToString"
     }
 }

@@ -1,16 +1,15 @@
 fun main() {
+    var p1 = Person("imane", "soulaimani", 28)
+
+    var a1 = Pet("boby", "dog")
+    var a2 = Pet("lolo", "cat", p1)
+
+    println("Pets:")
+    println(a1)
+    println(a2)
+
     println()
 
-    var p1 = Person()
+    println("People: ")
     println(p1)
-
-    println()
-
-//    var p2 = Person(firstName = "7assan")
-    // ? Exception
-//    println(p2)
-
-//    var p3 = Person(age = 6)
-    // ? Exception
-//    println(p3)
 }
