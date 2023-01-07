@@ -1,19 +1,14 @@
 fun main() {
-    var p1 = Person("imane", "soulaimani", 28)
+    println("Allowed pet types: ${Pet.allowedTypes}")
 
     var a1 = Pet("boby", "dog")
-    var a2 = Pet("lolo", "cat", p1)
+    println(a1)
 
-    println("People: ")
-    println(p1)
+//    var a2 = Pet("loli", "kitten")
+    // ? Exception: kitten isn't allowed
 
-    println("\nPets of ${p1.fullName}")
-    println(p1.pets)
-    // * p1.pets→ Call custom getter
+    var a3 = Pet("chocho", "fish")
+//    a3.type = "goldfish"
+    // ? Exception: goldfish isn't allowed
 
-//    p1.pets.add(a1)
-    // * we can't call add because pets is (now) immutable
-
-    p1.addPet(a2)
-    println(p1.pets)
 }
