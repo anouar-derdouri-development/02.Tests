@@ -7,11 +7,14 @@ class Pet(
         type: String,
         owner: Person?
     ) : this(name, type) {
-        if (owner != null)
-            owner.pets.add(this)
-        /*
-            ToDo: Explore Null safety options
-        */
+        if (owner != null) {
+//            owner.pets.add(this)
+            // * Doesn't work anymore, because pets is List... (immutable)
+
+            owner.addPet(this)
+        }
+
+        // ToDo: Explore Null safety options
     }
 
     override fun toString(): String {

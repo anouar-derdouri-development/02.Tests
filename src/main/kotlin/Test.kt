@@ -4,12 +4,16 @@ fun main() {
     var a1 = Pet("boby", "dog")
     var a2 = Pet("lolo", "cat", p1)
 
-    println("Pets:")
-    println(a1)
-    println(a2)
-
-    println()
-
     println("People: ")
     println(p1)
+
+    println("\nPets of ${p1.fullName}")
+    println(p1.pets)
+    // * p1.pets→ Call custom getter
+
+//    p1.pets.add(a1)
+    // * we can't call add because pets is (now) immutable
+
+    p1.addPet(a2)
+    println(p1.pets)
 }

@@ -4,8 +4,9 @@ class Person constructor(
     age: Int = 18,
     /*
         * ToDo: Add private property
-
         * ToDo: Add val property
+
+        ? Both done but in class body (not in primary constructor)
      */
 ) {
     var firstName = firstName
@@ -23,7 +24,11 @@ class Person constructor(
             field = checkAge(value)
         }
 
-    val pets: MutableList<Pet> = mutableListOf()
+    private val _pets: MutableList<Pet> = mutableListOf()
+    val pets: List<Pet>
+        get() {
+            return _pets
+        }
 
     val fullName: String
         get() {
@@ -61,5 +66,10 @@ class Person constructor(
         var petsToString = pets.joinToString(" ")
 
         return "$firstName $lastName - Pets: $petsToString"
+    }
+
+    fun addPet(pet: Pet) {
+        // ToDo here we can implement validation rules; for example prohibiting the add of dogs
+        _pets.add(pet)
     }
 }
