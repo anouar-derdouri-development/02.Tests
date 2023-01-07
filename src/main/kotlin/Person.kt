@@ -11,11 +11,17 @@ class Person constructor(
 ) {
     var firstName = firstName
         set(value) {
+            if (! Validation.isName(value))
+                throw Exception("Invalid Firstname !!!")
+
             field = Formatting.titlecase(value)
         }
 
     var lastName = lastName
         set(value) {
+            if (! Validation.isName(value))
+                throw Exception("Invalid Lastname !!!")
+
             field = value.uppercase()
         }
 
@@ -28,7 +34,12 @@ class Person constructor(
         println("\ninit")
         println("-".repeat("init".length))
 
+        if (! Validation.isName(firstName))
+            throw Exception("Invalid Firstname !!!")
         this.firstName = Formatting.titlecase(firstName)
+
+        if (! Validation.isName(lastName))
+            throw Exception("Invalid Lastname !!!")
         this.lastName = this.lastName.uppercase()
 
         println("${this.firstName} ${this.lastName}")

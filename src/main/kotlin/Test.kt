@@ -1,12 +1,21 @@
 fun main() {
     var p = Person("hassan", "alaoui")
 
-    p.show()
-    println("Fullname: ${p.fullName}")
+//    var p = Person("7assan", "alaoui")
+    // ? Exception
 
-    p.firstName = "hamid"
+    p.show()
+
+    p.firstName = "ali"
+
+//    p.firstName = "3ali"
+    // ? Exception
+
+//    p.firstName = "   "
+    // ? Exception
+
     p.lastName = "hassani"
     p.show()
-    println("Fullname: ${p.fullName}")
-    println("Fullname: ${p.firstName} ${p.lastName}") // * Call default getters
+
+
 }
